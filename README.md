@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+# 🛒 Ecommerce Full Stack  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto **Full Stack** desarrollado con **Node.js, Express, MongoDB, React y Vite**, que simula un sistema de ecommerce con **carritos de compras, productos dinámicos y conexión entre frontend y backend**.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tecnologías utilizadas  
 
-### `npm start`
+### 🖥️ Backend  
+- ⚡ **Node.js + Express** → API REST.  
+- 🗄️ **MongoDB + Mongoose** → Base de datos NoSQL.  
+- 📡 **Express Router** → Modularización de rutas.  
+- 🔄 **Socket.io** → Actualizaciones en tiempo real.  
+- ☁️ **Railway** → Deploy del servidor.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 💻 Frontend  
+- ⚛️ **React con Vite** → SPA rápida y modular.  
+- 🧭 **React Router** → Navegación de vistas.  
+- 🌐 **Axios** → Consumo de API.  
+- 🎨 **Bootstrap 5** → Interfaz responsive y moderna.  
+- 🌍 **Netlify** → Deploy del cliente.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚙️ Funcionalidades principales  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🔹 Productos  
+✅ Listado de productos con **paginación, filtros y ordenamiento**.  
+✅ Vista detallada de cada producto.  
+✅ Botón **Agregar al carrito** en cada card.  
 
-### `npm run build`
+### 🔹 Carrito  
+🛍️ Creación automática del carrito si no existe.  
+➕ Agregar productos al carrito.  
+❌ Eliminar productos individuales.  
+🔄 Actualizar cantidad de un producto.  
+🗑️ Vaciar carrito completo.  
+💲 Cálculo dinámico del **total**.  
+✨ Notificaciones de acciones con **toasts personalizados** (sin `alert`).  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔹 Frontend  
+📄 Página `/products` → Cards con info del producto + botón para agregar.  
+🛒 Página `/carts/:cid` → Listado de productos, cantidades y total.  
+📢 Pop-ups visuales con Bootstrap Toast para confirmaciones.  
+📱 Diseño **responsive** con Bootstrap.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔹 Backend  
+🌐 API REST estructurada en `/api/products` y `/api/carts`.  
+🔑 Endpoints:  
+- `GET /api/products` → Listado de productos con paginación, filtros y ordenamiento.  
+- `GET /api/carts/:cid` → Obtener productos del carrito.  
+- `POST /api/carts/create` → Crear carrito.  
+- `PUT /api/carts/:cid/product/:pid` → Agregar producto o actualizar cantidad.  
+- `DELETE /api/carts/:cid/products/:pid` → Eliminar producto del carrito.  
+- `DELETE /api/carts/:cid` → Vaciar carrito completo.  
+⚡ Integración con **MongoDB Atlas** usando Mongoose.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📂 Estructura del proyecto  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+ecommerce-fullstack/
+│
+├── backend/                # Servidor Node.js con Express
+│   ├── controllers/        # Controladores de productos y carritos
+│   ├── models/             # Modelos de MongoDB (Product, Cart)
+│   ├── routes/             # Rutas API
+│   ├── app.js              # Configuración principal
+│   └── ...
+│
+├── frontend/               # Cliente React con Vite
+│   ├── src/
+│   │   ├── Pages/          # Vistas (Home, Cart, etc.)
+│   │   ├── Service/        # Cliente API (axios)
+│   │   └── App.jsx         # Router principal
+│   └── ...
+│
+└── README.md
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📦 Instalación y uso  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🔹 Clonar el repositorio  
+```bash
+git clone https://github.com/TU_USUARIO/ecommerce.git
+cd ecommerce
+```
 
-## Learn More
+### 🔹 Backend  
+```bash
+cd backend
+npm install
+npm run dev
+```
+👉 Corre en: `http://localhost:8080`  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🔹 Frontend  
+```bash
+cd frontend
+npm install
+npm run dev
+```
+👉 Corre en: `http://localhost:5173`  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🌍 Deploy  
+- **Backend:** Railway → [https://backend-production-1df6.up.railway.app/](https://backend-production-1df6.up.railway.app/)  
+- **Frontend:** Netlify → [https://eccomercefullstack.netlify.app/](https://eccomercefullstack.netlify.app/)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📝 Notas  
+- El **carrito se crea automáticamente** al agregar un producto.  
+- El `cartId` se guarda en **localStorage**.  
+- Notificaciones (agregar/eliminar producto) con **toasts de Bootstrap** para mejor UX.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ✨ Autor  
+👨‍💻 **Ignacio Rojos**  
+🔗 [LinkedIn](https://github.com/IgnacioRojos)  
+📂 [Portafolio](https://porfolioignaciorojos.netlify.app/)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
