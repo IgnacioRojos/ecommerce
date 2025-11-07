@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../Service/Temp';
+import "../Styles/Cart.css"
 
 function Cart() {
   const [cartProducts, setCartProducts] = useState([]);
@@ -76,7 +77,7 @@ function Cart() {
               </li>
             ))}
           </ul>
-          <h5>Total: ${total}</h5>
+          <h5 className='total'>Total: ${total}</h5>
         </div>
       )}
     </div>

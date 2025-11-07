@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../Service/Temp'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../Styles/Home.css"
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -37,10 +38,10 @@ function Home() {
       await api.put(`/api/carts/${cartId}/product/${productId}`, { quantity: 1 });
 
       // Mostrar toast de éxito
-      setToast({ show: true, message: "Producto agregado al carrito ✅", type: "success" });
+      setToast({ show: true, message: "Producto agregado al carrito ", type: "success" });
     } catch (err) {
       console.error("Error agregando producto al carrito:", err);
-      setToast({ show: true, message: "No se pudo agregar el producto ❌", type: "danger" });
+      setToast({ show: true, message: "No se pudo agregar el producto ", type: "danger" });
     }
   };
 

@@ -1,0 +1,70 @@
+/* ===== Estilos generales del Navbar ===== */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Marca principal (Mi Tienda) ===== */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333 !important;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #f7ca00 !important; /* Amarillo tipo Amazon / Mercado Libre */
+}
+
+/* ===== Links del menú ===== */
+.nav-link {
+  color: #555 !important;
+  font-weight: 500;
+  margin-left: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #f7ca00 !important;
+  transform: translateY(-2px);
+}
+
+/* ===== Estado activo ===== */
+.nav-link.active,
+.nav-link:focus {
+  color: #f7ca00 !important;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f7ca00;
+  border-radius: 2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #fff;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+}
