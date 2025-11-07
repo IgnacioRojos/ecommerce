@@ -101,7 +101,7 @@ npm run dev
 ```bash
 cd frontend
 npm install
-npm run dev
+npm start
 ```
 👉 Corre en: `http://localhost:5173`  
 
