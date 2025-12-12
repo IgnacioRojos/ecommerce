@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../Service/Temp';
+import CheckoutButton from '../Componentes/CheckOut';
 import "../Styles/Cart.css"
 
 function Cart() {
@@ -78,6 +79,7 @@ function Cart() {
             ))}
           </ul>
           <h5 className='total'>Total: ${total}</h5>
+          <CheckoutButton cartItems={cartProducts} />
         </div>
       )}
     </div>
