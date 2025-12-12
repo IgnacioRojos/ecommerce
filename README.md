@@ -1,80 +1,142 @@
-# 🛒 Ecommerce Full Stack  
+# 🛒 Ecommerce Full Stack — Proyecto Completo con Integración de Mercado Pago  
 
-Proyecto **Full Stack** desarrollado con **Node.js, Express, MongoDB, React y Vite**, que simula un sistema de ecommerce con **carritos de compras, productos dinámicos y conexión entre frontend y backend**.  
+Este es un proyecto **Full Stack real**, desarrollado con **Node.js, Express, MongoDB, React y Vite**, que implementa un flujo completo de ecommerce: productos, carritos, órdenes, pagos, almacenamiento en base de datos y deploy en producción.  
+La mejora constante del proyecto se realizó aplicando una **narrativa tipo STAR**, orientada a explicar claramente el contexto, el problema, las decisiones y el impacto de cada funcionalidad.
+
+---
+
+# ⭐ Visión General del Proyecto
+
+El objetivo principal fue **simular un ecommerce profesional**, capaz de manejar productos, carritos persistentes, pagos reales (entorno sandbox), integración con Mercado Pago y almacenamiento de compras.
+
+Se priorizó:  
+- **Claridad del flujo de compra**  
+- **Arquitectura escalable**  
+- **Experiencia de usuario moderna**  
+- **Backend robusto**, validado y modular  
+- **Integración real de medios de pago**
 
 ---
 
-## 🚀 Tecnologías utilizadas  
+# 🚀 Tecnologías utilizadas  
 
-### 🖥️ Backend  
-- ⚡ **Node.js + Express** → API REST.  
-- 🗄️ **MongoDB + Mongoose** → Base de datos NoSQL.  
-- 📡 **Express Router** → Modularización de rutas.  
-- 🔄 **Socket.io** → Actualizaciones en tiempo real.  
-- ☁️ **Railway** → Deploy del servidor.  
+## 🖥️ Backend  
+- **Node.js + Express** → API REST modular.  
+- **MongoDB + Mongoose** → Base de datos NoSQL.  
+- **Express Router** → Separación clara de responsabilidades.  
+- **Socket.io** → Eventos en tiempo real.  
+- **Railway** → Deploy del servidor.  
+- **Mercado Pago API** → Creación de preferencias, redirecciones y webhook.
 
-### 💻 Frontend  
-- ⚛️ **React con Vite** → SPA rápida y modular.  
-- 🧭 **React Router** → Navegación de vistas.  
-- 🌐 **Axios** → Consumo de API.  
-- 🎨 **Bootstrap 5** → Interfaz responsive y moderna.  
-- 🌍 **Netlify** → Deploy del cliente.  
+## 💻 Frontend  
+- **React + Vite** → Aplicación rápida y liviana.  
+- **React Router** → Navegación SPA.  
+- **Axios** → Consumo de API.  
+- **Bootstrap 5** → UI responsiva.  
+- **Netlify** → Deploy del cliente.  
 
 ---
+
+# ⭐ Desarrollo del Proyecto
+
+## 🔸 **S — Situación**  
+Se requería crear un ecommerce funcional que permitiera simular un flujo de compra completo con frontend y backend conectados, almacenamiento de datos y pagos reales en modo test.
+
+## 🔸 **T — Tarea**  
+Desarrollar un sistema que permita:  
+- Gestión de productos  
+- Carritos individuales persistentes  
+- Órdenes de compra  
+- Integración con **Mercado Pago**  
+- Almacenamiento de compras en **MongoDB**  
+- Deploy backend + frontend  
+
+## 🔸 **A — Acciones realizadas**  
+- Creación de un **backend modular** con controladores/managers.  
+- Sistema de **carritos** que se genera automáticamente y persiste en `localStorage`.  
+- Endpoint de creación de órdenes + modelo `Order`.  
+- Integración completa de Mercado Pago:  
+  - **Preferencia de pago**  
+  - **Redirección a checkout**  
+  - **Webhook funcional** conectado a Railway  
+  - Guardado automático de compras en la base de datos  
+  - Limpieza del carrito tras confirmar el pago  
+- Desarrollo del frontend con vistas:  
+  - `/products`  
+  - `/cart`  
+  - `/success`, `/failure`, `/pending`  
+- Toasts de notificación para UX.  
+- Deploy final en Railway + Netlify.
+
+## 🔸 **R — Resultado**  
+- Plataforma funcional, moderna y estable.  
+- **Pagos simulados funcionando** con credenciales de test.  
+- Compras **almacenadas correctamente** en MongoDB.  
+- Carrito se **vacía automáticamente** al completar el pago.  
+- Flujo completo de compra validado end to end.  
+- Proyecto listo para revisión técnica o presentación profesional.
+
+---
+
+# 💳 Integración de Mercado Pago (Sandbox)
+
+Cuenta: TESTUSER4788162647961832544
+Contraseña: pIhgaffXgh
+
+Tarjeta de prueba: 5031 7557 3453 0604
+Código: 123
+Fecha: 11/30
+
+
 
 ## ⚙️ Funcionalidades principales  
 
-### 🔹 Productos  
-✅ Listado de productos con **paginación, filtros y ordenamiento**.  
-✅ Vista detallada de cada producto.  
-✅ Botón **Agregar al carrito** en cada card.  
+## 🔹 Productos  
+- Listado con filtros, paginación y ordenamiento.  
+- Vista detallada.  
+- Botón “Agregar al carrito”.
 
-### 🔹 Carrito  
-🛍️ Creación automática del carrito si no existe.  
-➕ Agregar productos al carrito.  
-❌ Eliminar productos individuales.  
-🔄 Actualizar cantidad de un producto.  
-🗑️ Vaciar carrito completo.  
-💲 Cálculo dinámico del **total**.  
-✨ Notificaciones de acciones con **toasts personalizados** (sin `alert`).  
+## 🔹 Carrito  
+- Se crea automáticamente.  
+- Agregar, actualizar y eliminar productos.  
+- Vaciar carrito completo.  
+- Total dinámico.  
+- Toasts de notificación.
 
-### 🔹 Frontend  
-📄 Página `/products` → Cards con info del producto + botón para agregar.  
-🛒 Página `/carts/:cid` → Listado de productos, cantidades y total.  
-📢 Pop-ups visuales con Bootstrap Toast para confirmaciones.  
-📱 Diseño **responsive** con Bootstrap.  
+## 🔹 Backend  
+- API REST organizada en rutas `/products`, `/carts`, `/pagos`.  
+- Webhook funcional.  
+- Almacenamiento de órdenes reales.  
+- Conexión estable a MongoDB Atlas.
 
-### 🔹 Backend  
-🌐 API REST estructurada en `/api/products` y `/api/carts`.  
-🔑 Endpoints:  
-- `GET /api/products` → Listado de productos con paginación, filtros y ordenamiento.  
-- `GET /api/carts/:cid` → Obtener productos del carrito.  
-- `POST /api/carts/create` → Crear carrito.  
-- `PUT /api/carts/:cid/product/:pid` → Agregar producto o actualizar cantidad.  
-- `DELETE /api/carts/:cid/products/:pid` → Eliminar producto del carrito.  
-- `DELETE /api/carts/:cid` → Vaciar carrito completo.  
-⚡ Integración con **MongoDB Atlas** usando Mongoose.  
-
----
+## 🔹 Frontend  
+- React SPA con navegación limpia.  
+- Páginas de pago:  
+  - `/success`  
+  - `/failure`  
+  - `/pending`  
+- Bootstrap UI responsiva.
 
 ## 📂 Estructura del proyecto  
 
 ```
 ecommerce-fullstack/
 │
-├── backend/                # Servidor Node.js con Express
-│   ├── controllers/        # Controladores de productos y carritos
-│   ├── models/             # Modelos de MongoDB (Product, Cart)
-│   ├── routes/             # Rutas API
-│   ├── app.js              # Configuración principal
-│   └── ...
+├── backend/
+│ ├── controllers/
+│ ├── managers/
+│ ├── models/
+│ ├── routes/
+│ ├── app.js
+│ └── ...
 │
-├── frontend/               # Cliente React con Vite
-│   ├── src/
-│   │   ├── Pages/          # Vistas (Home, Cart, etc.)
-│   │   ├── Service/        # Cliente API (axios)
-│   │   └── App.jsx         # Router principal
-│   └── ...
+├── frontend/
+│ ├── src/
+│ │ ├── Pages/
+│ │ ├── Service/
+│ │ ├── Components/
+│ │ └── App.jsx
+│ └── ...
 │
 └── README.md
 ```
