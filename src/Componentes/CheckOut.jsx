@@ -18,7 +18,7 @@ const CheckoutButton = ({ cartItems }) => {
       }));
 
       const response = await fetch(
-        "https://backend-production-1df6.up.railway.app/api/pagos/create_preference",
+        `${process.env.REACT_APP_API_URL}/api/pagos/create_preference`,
         {
           method: "POST",
           headers: {
