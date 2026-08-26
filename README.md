@@ -25,8 +25,10 @@ Se priorizó:
 - **MongoDB + Mongoose** → Base de datos NoSQL.  
 - **Express Router** → Separación clara de responsabilidades.  
 - **Socket.io** → Eventos en tiempo real.  
-- **Railway** → Deploy del servidor.  
+- **Render** → Deploy del servidor.  
 - **Mercado Pago API** → Creación de preferencias, redirecciones y webhook.
+
+> ℹ️ El backend vive en un repositorio aparte: **[BackEnd](https://github.com/IgnacioRojos/BackEnd)**. Este repo (`ecommerce`) contiene únicamente el frontend.
 
 ## 💻 Frontend  
 - **React + Vite** → Aplicación rápida y liviana.  
@@ -58,7 +60,7 @@ Desarrollar un sistema que permita:
 - Integración completa de Mercado Pago:  
   - **Preferencia de pago**  
   - **Redirección a checkout**  
-  - **Webhook funcional** conectado a Railway  
+  - **Webhook funcional** conectado a Render  
   - Guardado automático de compras en la base de datos  
   - Limpieza del carrito tras confirmar el pago  
 - Desarrollo del frontend con vistas:  
@@ -66,7 +68,7 @@ Desarrollar un sistema que permita:
   - `/cart`  
   - `/success`, `/failure`, `/pending`  
 - Toasts de notificación para UX.  
-- Deploy final en Railway + Netlify.
+- Deploy final en Render + Netlify.
 
 ## 🔸 **R — Resultado**  
 - Plataforma funcional, moderna y estable.  
@@ -119,25 +121,21 @@ Fecha: 11/30
 
 ## 📂 Estructura del proyecto  
 
+El producto completo está dividido en dos repositorios:
+
+- **`ecommerce`** (este repo) → frontend en React.
+- **[`BackEnd`](https://github.com/IgnacioRojos/BackEnd)** → API en Node/Express + MongoDB.
+
+Estructura de este repo (frontend):
+
 ```
-ecommerce-fullstack/
-│
-├── backend/
-│ ├── controllers/
-│ ├── managers/
-│ ├── models/
-│ ├── routes/
-│ ├── app.js
-│ └── ...
-│
-├── frontend/
-│ ├── src/
-│ │ ├── Pages/
-│ │ ├── Service/
-│ │ ├── Components/
-│ │ └── App.jsx
-│ └── ...
-│
+ecommerce/
+├── src/
+│ ├── Pages/
+│ ├── Service/
+│ ├── Componentes/
+│ └── App.jsx
+├── public/
 └── README.md
 ```
 
@@ -147,30 +145,33 @@ ecommerce-fullstack/
 
 ### 🔹 Clonar el repositorio  
 ```bash
-git clone https://github.com/TU_USUARIO/ecommerce.git
+git clone https://github.com/IgnacioRojos/ecommerce.git
 cd ecommerce
 ```
 
 ### 🔹 Backend  
-```bash
-cd backend
-npm install
-npm run dev
-```
-👉 Corre en: `http://localhost:8080`  
+El backend se corre desde su propio repositorio: **[BackEnd](https://github.com/IgnacioRojos/BackEnd)**. Seguí las instrucciones de instalación de ese repo.
 
 ### 🔹 Frontend  
 ```bash
-cd frontend
 npm install
+```
+
+Creá un archivo `.env` en la raíz con las variables:
+```env
+REACT_APP_API_URL=http://localhost:4000
+REACT_APP_MP_PUBLIC_KEY=tu_public_key_de_mercado_pago
+```
+
+```bash
 npm start
 ```
-👉 Corre en: `http://localhost:5173`  
+👉 Corre en: `http://localhost:3000`  
 
 ---
 
 ## 🌍 Deploy  
-- **Backend:** Railway → [https://backend-production-1df6.up.railway.app/](https://backend-production-1df6.up.railway.app/)  
+- **Backend:** Render → [https://backend-pt73.onrender.com](https://backend-pt73.onrender.com)  
 - **Frontend:** Netlify → [https://eccomercefullstack.netlify.app/](https://eccomercefullstack.netlify.app/)  
 
 ---
@@ -184,6 +185,6 @@ npm start
 
 ## ✨ Autor  
 👨‍💻 **Ignacio Rojos**  
-🔗 [LinkedIn](https://github.com/IgnacioRojos)  
+💻 [GitHub](https://github.com/IgnacioRojos)  
+🔗 [LinkedIn](https://www.linkedin.com/in/ignaciorojos)  
 📂 [Portafolio](https://porfolioignaciorojos.netlify.app/)  
-
